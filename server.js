@@ -19,7 +19,7 @@ app.post("/ask", async (req, res) => {
     const { question, category } = req.body;
 
     const completion = await openai.chat.completions.create({
-      model: "gemini-2.0-flash",
+      model: "gpt-3.5-turbo",
       messages: [
         { role: "system", content: `Tu es un assistant juridique spécialisé en droit français. Catégorie : ${category}` },
         { role: "user", content: question }
