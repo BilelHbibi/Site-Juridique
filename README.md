@@ -1,18 +1,46 @@
-# React + Vite
+# Assistant Juridique IA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![License](https://img.shields.io/badge/license-MIT-green) ![React](https://img.shields.io/badge/React-17.0.2-blue) ![Node.js](https://img.shields.io/badge/Node.js-18.x-green) ![Express](https://img.shields.io/badge/Express-4.x-orange)
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🔹 Description
 
-## React Compiler
+**Assistant Juridique IA** est une application web permettant à un utilisateur de poser des questions juridiques et de recevoir une **réponse rapide** selon la catégorie choisie (Travail, Famille, Immobilier, Pénal, Consommation).  
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Le projet a été développé pour :  
+- Fournir une **première orientation juridique**.  
+- Démontrer des compétences professionnelles en **React et Node.js**.  
+- Respecter les bonnes pratiques Git et GitHub (gestion de secrets, workflow branches).  
 
-Note: This will impact Vite dev & build performances.
+> ⚠️ Cet assistant **ne remplace pas un avocat**. Il fournit seulement des indications générales.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔹 Fonctionnalités
+
+1. Sélection de **catégorie juridique**.  
+2. Zone de saisie pour décrire le problème en détail.  
+3. Réponse adaptée avec gestion des erreurs et chargement.  
+4. Backend simple pour traiter les questions.  
+5. Gestion des erreurs réseau et validation de saisie.  
+6. **Sécurité** : les clés API (OpenAI ou autres) ne sont jamais exposées sur GitHub.  
+
+---
+
+## 🔹 Technologies utilisées
+
+- **Frontend :** React.js (hooks, state management)  
+- **Backend :** Node.js, Express.js (API REST)  
+- **Styles :** CSS inline minimaliste (possibilité de migration vers Tailwind ou SCSS)  
+- **Versioning :** Git + GitHub, workflow professionnel avec branches et protection `main`  
+- **Sécurité :** `.env` ignoré par Git, secrets jamais exposés  
+
+---
+
+## 🔹 Installation et exécution
+
+### 1️⃣ Cloner le projet
+```bash
+git clone https://github.com/BilelHbibi/Site-Juridique.git
+cd Site-Juridique
