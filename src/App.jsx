@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 export default function App() {
   const [question, setQuestion] = useState("");
@@ -13,6 +14,8 @@ export default function App() {
   const sendQuestion = async () => {
     if (!question) {
 =======
+=======
+>>>>>>> 3ab6937 (four commit)
 import "./styles.css"; // Import du fichier CSS externe
 
 export default function App() {
@@ -42,20 +45,28 @@ export default function App() {
   const sendQuestion = async () => {
     // Validation : empêcher l'envoi d'une question vide
     if (!question.trim()) {
+<<<<<<< HEAD
 >>>>>>> 290dd09 (four commit)
+=======
+>>>>>>> 3ab6937 (four commit)
       setError("Veuillez décrire votre problème.");
       return;
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     // Initialisation des états avant la requête
 >>>>>>> 290dd09 (four commit)
+=======
+    // Initialisation des états avant la requête
+>>>>>>> 3ab6937 (four commit)
     setLoading(true);
     setError("");
     setResponse("");
 
     try {
+<<<<<<< HEAD
 <<<<<<< HEAD
       const res = await fetch("http://localhost:5000/ask", {
         method: "POST",
@@ -90,6 +101,8 @@ export default function App() {
             onChange={(e) => setCategory(e.target.value)}
             style={styles.input}
 =======
+=======
+>>>>>>> 3ab6937 (four commit)
       // Appel API vers le backend (endpoint local)
       const res = await fetch("http://localhost:5000/ask", {
         method: "POST",
@@ -102,8 +115,12 @@ export default function App() {
 
       // Vérification du status HTTP (bonne pratique souvent oubliée)
       if (!res.ok) {
+<<<<<<< HEAD
         const errorText = await res.text();
         throw new Error(errorText || "Erreur HTTP");
+=======
+        throw new Error("Erreur HTTP");
+>>>>>>> 3ab6937 (four commit)
       }
 
       // Conversion de la réponse JSON
@@ -117,11 +134,19 @@ export default function App() {
       }
     } catch (err) {
       // Gestion des erreurs réseau ou serveur
+<<<<<<< HEAD
       setError(`Erreur serveur, veuillez réessayer. (${err.message})`);
     } finally {
       // Fin du loading
       setLoading(false);
     }
+=======
+      setError("Erreur serveur, veuillez réessayer.");
+    }
+
+    // Fin du loading
+    setLoading(false);
+>>>>>>> 3ab6937 (four commit)
   };
 
   /* =========================
@@ -150,7 +175,10 @@ export default function App() {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             className="input"
+<<<<<<< HEAD
 >>>>>>> 290dd09 (four commit)
+=======
+>>>>>>> 3ab6937 (four commit)
           >
             <option>Travail</option>
             <option>Famille</option>
@@ -160,13 +188,18 @@ export default function App() {
           </select>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
           {/* Zone de saisie du problème utilisateur */}
 >>>>>>> 290dd09 (four commit)
+=======
+          {/* Zone de saisie du problème utilisateur */}
+>>>>>>> 3ab6937 (four commit)
           <textarea
             placeholder="Décrivez votre problème..."
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
+<<<<<<< HEAD
 <<<<<<< HEAD
             style={styles.textarea}
           />
@@ -178,6 +211,8 @@ export default function App() {
           {response && (
             <div style={styles.responseBox}>
 =======
+=======
+>>>>>>> 3ab6937 (four commit)
             className="textarea"
             disabled={loading} // Bloqué pendant l'appel API
           />
@@ -194,23 +229,32 @@ export default function App() {
           {/* Affichage de la réponse si disponible */}
           {response && (
             <div className="responseBox">
+<<<<<<< HEAD
 >>>>>>> 290dd09 (four commit)
+=======
+>>>>>>> 3ab6937 (four commit)
               <h3>Réponse :</h3>
               <p style={{ whiteSpace: "pre-line" }}>{response}</p>
             </div>
           )}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
           <p style={styles.disclaimer}>
 =======
           {/* Disclaimer légal */}
           <p className="disclaimer">
 >>>>>>> 290dd09 (four commit)
+=======
+          {/* Disclaimer légal */}
+          <p className="disclaimer">
+>>>>>>> 3ab6937 (four commit)
             ⚠️ Cet assistant ne remplace pas un avocat. Il fournit une première
             orientation seulement.
           </p>
         </div>
       </main>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <Footer />
     </div>
@@ -262,10 +306,16 @@ const styles = {
   disclaimer: { marginTop: "15px", fontSize: "12px", color: "#999" },
 };
 =======
+=======
+>>>>>>> 3ab6937 (four commit)
 
       {/* Footer global */}
       <Footer />
     </div>
   );
+<<<<<<< HEAD
 }
 >>>>>>> 290dd09 (four commit)
+=======
+}
+>>>>>>> 3ab6937 (four commit)
