@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+<<<<<<< HEAD
 
 export default function App() {
   const [question, setQuestion] = useState("");
@@ -11,15 +12,51 @@ export default function App() {
 
   const sendQuestion = async () => {
     if (!question) {
+=======
+import "./styles.css"; // Import du fichier CSS externe
+
+export default function App() {
+  /* =========================
+     STATE MANAGEMENT
+     ========================= */
+
+  // Stocke la question saisie par l'utilisateur
+  const [question, setQuestion] = useState("");
+
+  // Catégorie juridique sélectionnée (valeur par défaut : Travail)
+  const [category, setCategory] = useState("Travail");
+
+  // Réponse renvoyée par l'API backend
+  const [response, setResponse] = useState("");
+
+  // Indique si une requête est en cours (pour UX : loading)
+  const [loading, setLoading] = useState(false);
+
+  // Gestion des erreurs (validation ou serveur)
+  const [error, setError] = useState("");
+
+  /* =========================
+     API CALL FUNCTION
+     ========================= */
+
+  const sendQuestion = async () => {
+    // Validation : empêcher l'envoi d'une question vide
+    if (!question.trim()) {
+>>>>>>> 290dd09 (four commit)
       setError("Veuillez décrire votre problème.");
       return;
     }
 
+<<<<<<< HEAD
+=======
+    // Initialisation des états avant la requête
+>>>>>>> 290dd09 (four commit)
     setLoading(true);
     setError("");
     setResponse("");
 
     try {
+<<<<<<< HEAD
       const res = await fetch("http://localhost:5000/ask", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -52,6 +89,68 @@ export default function App() {
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             style={styles.input}
+=======
+      // Appel API vers le backend (endpoint local)
+      const res = await fetch("http://localhost:5000/ask", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // Envoi des données utilisateur au serveur
+        body: JSON.stringify({ question, category }),
+      });
+
+      // Vérification du status HTTP (bonne pratique souvent oubliée)
+      if (!res.ok) {
+        const errorText = await res.text();
+        throw new Error(errorText || "Erreur HTTP");
+      }
+
+      // Conversion de la réponse JSON
+      const data = await res.json();
+
+      // Vérification du contenu retourné
+      if (data.answer) {
+        setResponse(data.answer);
+      } else {
+        setError("Réponse vide");
+      }
+    } catch (err) {
+      // Gestion des erreurs réseau ou serveur
+      setError(`Erreur serveur, veuillez réessayer. (${err.message})`);
+    } finally {
+      // Fin du loading
+      setLoading(false);
+    }
+  };
+
+  /* =========================
+     UI RENDER
+     ========================= */
+
+  return (
+    <div className="page">
+      {/* Header global de l'application */}
+      <Header />
+
+      <main className="container">
+        <div className="card">
+          <h2>Assistant Juridique IA</h2>
+
+          {/* Texte d'introduction */}
+          <p className="subtitle">
+            Décrivez votre problème pour obtenir une réponse rapide
+          </p>
+
+          {/* Affichage conditionnel des erreurs */}
+          {error && <p className="error">{error}</p>}
+
+          {/* Sélecteur de catégorie juridique */}
+          <select
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+            className="input"
+>>>>>>> 290dd09 (four commit)
           >
             <option>Travail</option>
             <option>Famille</option>
@@ -60,10 +159,15 @@ export default function App() {
             <option>Consommation</option>
           </select>
 
+<<<<<<< HEAD
+=======
+          {/* Zone de saisie du problème utilisateur */}
+>>>>>>> 290dd09 (four commit)
           <textarea
             placeholder="Décrivez votre problème..."
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
+<<<<<<< HEAD
             style={styles.textarea}
           />
 
@@ -73,17 +177,41 @@ export default function App() {
 
           {response && (
             <div style={styles.responseBox}>
+=======
+            className="textarea"
+            disabled={loading} // Bloqué pendant l'appel API
+          />
+
+          {/* Bouton d'envoi avec état dynamique */}
+          <button
+            onClick={sendQuestion}
+            className="button"
+            disabled={loading}
+          >
+            {loading ? "Analyse en cours..." : "Obtenir une réponse"}
+          </button>
+
+          {/* Affichage de la réponse si disponible */}
+          {response && (
+            <div className="responseBox">
+>>>>>>> 290dd09 (four commit)
               <h3>Réponse :</h3>
               <p style={{ whiteSpace: "pre-line" }}>{response}</p>
             </div>
           )}
 
+<<<<<<< HEAD
           <p style={styles.disclaimer}>
+=======
+          {/* Disclaimer légal */}
+          <p className="disclaimer">
+>>>>>>> 290dd09 (four commit)
             ⚠️ Cet assistant ne remplace pas un avocat. Il fournit une première
             orientation seulement.
           </p>
         </div>
       </main>
+<<<<<<< HEAD
       <Footer />
     </div>
   );
@@ -133,3 +261,11 @@ const styles = {
   error: { color: "red", marginBottom: "10px" },
   disclaimer: { marginTop: "15px", fontSize: "12px", color: "#999" },
 };
+=======
+
+      {/* Footer global */}
+      <Footer />
+    </div>
+  );
+}
+>>>>>>> 290dd09 (four commit)
